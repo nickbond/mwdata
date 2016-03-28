@@ -145,13 +145,26 @@ writeLines(c("#' Table of fish species names and abbreviation codes based on sci
              #'\\describe{",paste("#'\\item{",names(species.codes),"}{}", sep=""),"#'}", "#' @source Nick Bond","\"species.codes\""), con=file("R/species.codes.R"))
 
 
+help_files<-list.files(path = "R/")
+help_files<-help_files[!grepl("mwdata.R",help_files) ]
+help_files<-gsub(".R|mwdata.R","", help_files)
+
+writeLines(c("#'mwdata contains the following datasets
+                     #'
+                     #'mwdata
+                     #'
+                     #' @format See individual help items.
+                     #'\\describe{",paste("#'\\item{",help_files,"}{}", sep=""),"#'}"), con=file("R/mwdata.R"))
 
 
-devtools::use_data(mw.catchvars, mw.gf.streams.attributes, mw.fish.pa, cat.strata, werg.nw, dam.catchments, modelled.temps, awap_df_1990_2014, sri_df_1990, sri_df_2000, species.codes, overwrite = TRUE)
+
+devtools::use_data(mw.catchvars, mw.gf.streams.attributes, mw.fish.pa, cat.strata, werg.nw, dam.catchments, modelled.temps, awap_df_1990_2014, sri_df_1990, sri_df_2000, species.codes, mwdata, overwrite = FALSE)
+
+devtools::use_package_doc()
+
 devtools::document()
 devtools::build()
 devtools::check()
-
 
 
 
