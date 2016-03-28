@@ -1,0 +1,5 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\source local datasets.*
+^README\.Rmd$
+^README-.*\.png$
