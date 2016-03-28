@@ -3,10 +3,7 @@
 \docType{data}
 \name{awap_df_1990_2014}
 \alias{awap_df_1990_2014}
-\title{Monthly runoff (mm) data for 12319 subcatchments calculated
-from the Australian Water Availability Project (AWAP) runoff dataset.
-Note because of file size limits on github this data must be comnbined with
-pre 2000 data in R (e.g. dplyr::bind_rows(awap_df_1990, awap_df_2000)).}
+\title{Monthly runoff (mm) data.}
 \format{A data frame with 12319 sites (columns) and data (rows) from 1988-2014
 \describe{
 \item{lubri_awap}{}
@@ -15920,6 +15917,12 @@ Nick Bond. Also see AWAP website
 awap_df_1990_2014
 }
 \description{
+Monthly runoff data for 12319 subcatchments calculated
+from the Australian Water Availability Project (AWAP) runoff dataset.
+Note because of file size limits on github this data must be comnbined with
+pre 2000 data in R (e.g. dplyr::bind_rows(awap_df_1990, awap_df_2000)).
+}
+\details{
 awap_df_1990_2014
 }
 \keyword{datasets}

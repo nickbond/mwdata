@@ -1,7 +1,9 @@
-#' Table of fish species names and abbreviation codes based on scientific names. Also includes conservation status
+#' Species names and abbreviations
+             #'
+             #' Table of fish species names and abbreviation codes based on scientific names. Also includes conservation status
              #' whether species are native or exotic. Table data is incomplete and includes many marine species and some crustaceans
              #'
-             #'species.codes
+             #' species.codes
              #'
              #' @format A data frame with 150 species names and 11 summary variables.
              #'\describe{

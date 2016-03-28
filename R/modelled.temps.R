@@ -1,6 +1,7 @@
-#' Modelled stream temperature data for 12319 sub catchments.
+#' Modelled stream temperature data.
              #'
-             #'modelled.temps
+             #' Modelled stream temperature data derived from BRT models built using land-use, hydrology and climate
+             #' variables. Unpublished results (Walsh and Bond, 2015).
              #'
              #' @format A data frame with 12319 observations and 10 air and water temperature variables
              #'\describe{

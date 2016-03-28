@@ -1,9 +1,9 @@
 Package: mwdata
 Type: Package
-Title: Data for use by Members of the WERG research group at University of Melbourne
+Title: Port Philip region physiographic and biological datasets
 Version: 0.1.0
 Authors@R: person("Bond", "Nick", email = "n.bond@griffith.edu.au", role = c("aut", "cre"))
-Description: For use in modelling species distribution patterns and a variety of other uses.
+Description: Datasets for use in modelling species distribution patterns and a variety of other uses.
 Depends: R (>= 2.10)
 License: Restricted use
 LazyData: TRUE

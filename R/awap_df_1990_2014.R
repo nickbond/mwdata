@@ -1,4 +1,6 @@
-#'Monthly runoff (mm) data for 12319 subcatchments calculated
+#'Monthly runoff (mm) data.
+             #'
+             #' Monthly runoff data for 12319 subcatchments calculated
              #'from the Australian Water Availability Project (AWAP) runoff dataset.
              #'Note because of file size limits on github this data must be comnbined with
              #'pre 2000 data in R (e.g. dplyr::bind_rows(awap_df_1990, awap_df_2000)).

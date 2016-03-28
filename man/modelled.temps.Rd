@@ -3,7 +3,7 @@
 \docType{data}
 \name{modelled.temps}
 \alias{modelled.temps}
-\title{Modelled stream temperature data for 12319 sub catchments.}
+\title{Modelled stream temperature data.}
 \format{A data frame with 12319 observations and 10 air and water temperature variables
 \describe{
 \item{site}{}
@@ -25,7 +25,8 @@ Nick Bond
 modelled.temps
 }
 \description{
-modelled.temps
+Modelled stream temperature data derived from BRT models built using land-use, hydrology and climate
+variables. Unpublished results (Walsh and Bond, 2015).
 }
 \keyword{datasets}
 

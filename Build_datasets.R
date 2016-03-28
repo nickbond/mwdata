@@ -75,9 +75,10 @@ writeLines(c("#' Table identifying catchments in or above onstream storages.
 #load modelled temperature data
 load("/Users/nickbond/Data/GIS_Data/MW Data/MW_Temperature_Data/stream.subcs with Stream temp predictions.RData")
 modelled.temps<-select(stream.subcs, site, ends_with("Tm"))
-writeLines(c("#' Modelled stream temperature data for 12319 sub catchments.
+writeLines(c("#' Modelled stream temperature data.
              #'
-             #'modelled.temps
+             #' Modelled stream temperature data derived from BRT models built using land-use, hydrology and climate
+             #' variables. Unpublished results (Walsh and Bond, 2015).
              #'
              #' @format A data frame with 12319 observations and 10 air and water temperature variables
              #'\\describe{",paste("#'\\item{",names(modelled.temps),"}{}", sep=""),"#'}", "#' @source Nick Bond","\"modelled.temps\""), con=file("R/modelled.temps.R"))
@@ -86,7 +87,9 @@ writeLines(c("#' Modelled stream temperature data for 12319 sub catchments.
 load("/Users/nickbond/Data/GIS_Data/MW Data/AWAP/month_flow_mw_catch_mm.RData")
 
 awap_df_1990_2014 <- filter(month_flow_mw_catch_mm, year(lubri_awap)>1987) # & year(lubri_awap)<2000)
-writeLines(c("#'Monthly runoff (mm) data for 12319 subcatchments calculated
+writeLines(c("#'Monthly runoff (mm) data.
+             #'
+             #' Monthly runoff data for 12319 subcatchments calculated
              #'from the Australian Water Availability Project (AWAP) runoff dataset.
              #'Note because of file size limits on github this data must be comnbined with
              #'pre 2000 data in R (e.g. dplyr::bind_rows(awap_df_1990, awap_df_2000)).
@@ -112,23 +115,27 @@ writeLines(c("#'Monthly runoff (mm) data for 12319 subcatchments calculated
 #load AWAP SRI data from 1988-2000
 load("/Users/nickbond/Data/GIS_Data/MW Data/AWAP/SRI_dataframes.RData")
 sri_df_1990<-filter(sri_df, year(DATE)>1987 & year(DATE)<2000)
-writeLines(c("#' Monthly standardized runoff index (SRI) for 12319 subcatchments calculated
-             #'for 1, 3, 6, 12 and 24 month lags (non-weighted) based on AWAP runoff data.
-             #'Note because of file size limits on github this data must be comnbined with
-             #'pre 2000 data in R (e.g. dplyr::bind_rows(sri_df_1990, sri_df_2000)).
+writeLines(c("#' Monthly standardized runoff index (SRI) (1990-1999).
              #'
-             #'sri_df_1990
+             #' Monthly standardized runoff index (SRI)for 12319 subcatchments calculated
+             #' for 1, 3, 6, 12 and 24 month lags (non-weighted) based on AWAP runoff data.
+             #' Note because of file size limits on github this data must be comnbined with
+             #' pre 2000 data in R (e.g. dplyr::bind_rows(sri_df_1990, sri_df_2000)).
+             #'
+             #' sri_df_1990
              #'
              #' @format A data frame with 12319 observations and 10 air and water temperature variables
              #'\\describe{",paste("#'\\item{",names(sri_df_1990),"}{}", sep=""),"#'}", "#' @source Nick Bond. Also see AWAP website and SPEI R package details","\"sri_df_1990\""), con=file("R/sri_df_1990.R"))
 
 sri_df_2000<-filter(sri_df, year(DATE)>1999)
-writeLines(c("#' Monthly standardized runoff index (SRI) for 12319 subcatchments calculated
-             #'for 1, 3, 6, 12 and 24 month lags (non-weighted) based on AWAP runoff data.
-             #'Note because of file size limits on github this data must be comnbined with
-             #'pre 2000 data in R (e.g. dplyr::bind_rows(sri_df_1990, sri_df_2000)).
+writeLines(c("#' Monthly standardized runoff index (SRI) (2000-2014).
              #'
-             #'sri_df_2000
+             #' Monthly standardized runoff index (SRI)for 12319 subcatchments calculated
+             #' for 1, 3, 6, 12 and 24 month lags (non-weighted) based on AWAP runoff data.
+             #' Note because of file size limits on github this data must be comnbined with
+             #' pre 2000 data in R (e.g. dplyr::bind_rows(sri_df_1990, sri_df_2000)).
+             #'
+             #' sri_df_2000
              #'
              #' @format A data frame with 12319 observations and 10 air and water temperature variables
              #'\\describe{",paste("#'\\item{",names(sri_df_2000),"}{}", sep=""),"#'}", "#' @source Nick Bond. Also see AWAP website and SPEI R package details","\"sri_df_2000\""), con=file("R/sri_df_2000.R"))
@@ -136,10 +143,12 @@ writeLines(c("#' Monthly standardized runoff index (SRI) for 12319 subcatchments
 
 #species.codes
 species.codes<-read.csv("/Users/nickbond/Documents/Regional Datasets/Australian Fish database/Australian_Fish_Species_Codes.csv")
-writeLines(c("#' Table of fish species names and abbreviation codes based on scientific names. Also includes conservation status
+writeLines(c("#' Species names and abbreviations
+             #'
+             #' Table of fish species names and abbreviation codes based on scientific names. Also includes conservation status
              #' whether species are native or exotic. Table data is incomplete and includes many marine species and some crustaceans
              #'
-             #'species.codes
+             #' species.codes
              #'
              #' @format A data frame with 150 species names and 11 summary variables.
              #'\\describe{",paste("#'\\item{",names(species.codes),"}{}", sep=""),"#'}", "#' @source Nick Bond","\"species.codes\""), con=file("R/species.codes.R"))
@@ -158,9 +167,11 @@ writeLines(c("#'mwdata contains the following datasets
 
 
 
-devtools::use_data(mw.catchvars, mw.gf.streams.attributes, mw.fish.pa, cat.strata, werg.nw, dam.catchments, modelled.temps, awap_df_1990_2014, sri_df_1990, sri_df_2000, species.codes, mwdata, overwrite = FALSE)
+devtools::use_data(mw.catchvars, mw.gf.streams.attributes, mw.fish.pa, cat.strata, werg.nw, dam.catchments, modelled.temps, awap_df_1990_2014, sri_df_1990, sri_df_2000, species.codes, overwrite = TRUE)
 
 devtools::use_package_doc()
+
+
 
 devtools::document()
 devtools::build()

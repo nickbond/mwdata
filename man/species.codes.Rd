@@ -3,8 +3,7 @@
 \docType{data}
 \name{species.codes}
 \alias{species.codes}
-\title{Table of fish species names and abbreviation codes based on scientific names. Also includes conservation status
-whether species are native or exotic. Table data is incomplete and includes many marine species and some crustaceans}
+\title{Species names and abbreviations}
 \format{A data frame with 150 species names and 11 summary variables.
 \describe{
 \item{COMMON.NAME}{}
@@ -26,6 +25,10 @@ Nick Bond
 species.codes
 }
 \description{
+Table of fish species names and abbreviation codes based on scientific names. Also includes conservation status
+whether species are native or exotic. Table data is incomplete and includes many marine species and some crustaceans
+}
+\details{
 species.codes
 }
 \keyword{datasets}
