@@ -25,9 +25,9 @@ load("/Users/nickbond/Data/GIS_Data/MW Data/CRES network/mw.gf.streams.attribute
 writeLines(c("#' Geofabric catchment variables
   #'
              #' A dataset containing the geofabric environmental attributes (n=423 variables)
-             #' for 2270 geofabric catchments around Melbourne.
+             #' for 6603 geofabric catchments around Melbourne.
              #'
-             #' @format A data frame with 2270 rows and 423 variables:
+             #' @format A data frame with 6603 rows and 423 variables:
              #'\\describe{",paste("#'\\item{",names(mw.gf.streams.attributes),"}{}", sep=""),"#'}", "#' @source http://www.ga.gov.au/metadata-gateway/metadata/record/gcat_75066","\"mw.gf.streams.attributes\""), con=file("R/mw.geofab.R"))
 
 #Calculate runoff depth (from the geofabric) and convert the WERG catchment areas to m2
