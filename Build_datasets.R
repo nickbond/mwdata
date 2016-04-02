@@ -14,11 +14,14 @@ writeLines(c("#' MW catchment variables
      #'\\describe{",paste("#'\\item{",names(mw.catchvars),"}{}", sep=""),"#'}", "#' @source Chris Walsh, University of Melbourne","\"mw.catchvars\""), con=file("R/mw.catchvars.R"))
 
 
+
 #load geofabric attribute table
 gf.attribute.list<-read.csv("/Users/nickbond/Data/GIS_Data/MW Data/CRES network/gf_stream_attributes_list.CSV")
 
 #load geofabric data.
 load("/Users/nickbond/Data/GIS_Data/MW Data/CRES network/mw.gf.streams.attributes.Rdata")
+
+
 writeLines(c("#' Geofabric catchment variables
   #'
              #' A dataset containing the geofabric environmental attributes (n=423 variables)
@@ -26,6 +29,11 @@ writeLines(c("#' Geofabric catchment variables
              #'
              #' @format A data frame with 2270 rows and 423 variables:
              #'\\describe{",paste("#'\\item{",names(mw.gf.streams.attributes),"}{}", sep=""),"#'}", "#' @source http://www.ga.gov.au/metadata-gateway/metadata/record/gcat_75066","\"mw.gf.streams.attributes\""), con=file("R/mw.geofab.R"))
+
+#Calculate runoff depth (from the geofabric) and convert the WERG catchment areas to m2
+
+mw.catchvars<-mw.catchvars %>% left_join(select(mw.gf.streams.attributes, one_of('SEGMENTNO','RUNANNMEAN', 'CATAREA')), by=c('segmentno' = 'SEGMENTNO')) %>% mutate(RUNANNDEP=RUNANNMEAN.y/CATAREA, AREA=AREA*0.000001, CAREA=CAREA*0.000001, SCAREA=SCAREA*0.000001) %>%
+  select(-segmentno, -RUNANNMEAN.y, -CATAREA) %>% rename(RUNANNMEAN=RUNANNMEAN.x)
 
 #load fish data
 load("/Users/nickbond/Data/GIS_Data/MW Data/Fish data/mw_all_fish_pa.RData")
@@ -176,7 +184,6 @@ devtools::use_package_doc()
 devtools::document()
 devtools::build()
 devtools::check()
-
 
 
 
