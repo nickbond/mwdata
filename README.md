@@ -13,7 +13,7 @@ To install run the following code:
       install.packages(c("devtools"))
 
       # install mwdata package
-        devtools::install_github("nickbond/mwdata",  auth_token = ("85efdecfa18bec5db2b469cb30dd22a185c3602f"))
+        devtools::install_github("nickbond/mwdata")
 
         # Remove the package zip after installation
         unlink("mwdata.zip")
